@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+/* パソコン画面 */
+
+@media(min-width:678px){
+  /* 共通 */
+  .sp{
+    display:none;
+  }
+  .pc{
+    display:block;
+  }
+
+  .container{
+    max-width:1000px;
+    margin:0 auto;
+    box-sizing: content-box;
+  }
+  
+
+  /* ----------------------------ヘッダー---------------------------- */
+  .header-inner{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #header-logo{
+    text-align:left;
+  }
+
+  #header-logo img{
+    width:250px;
+    height:auto;
+  }
+
+  /* パソコングローバルナビ */
+  .globalnav-pc ul{
+    display:flex;
+    align-items: center;
+    margin:0;
+  }
+  .globalnav-pc ul li{
+    text-align: center;
+  }
+  .globalnav-pc ul li a{
+    color:#333;
+    display:inline-block;
+    padding:10px;
+    font-size:14px;
+    border-bottom:1px solid transparent;/*borderは基本的にtransitionが効かないので、こっち側にもborderを指定しておく*/
+    transition:0.5s;
+  }
+  .globalnav-pc ul li a:hover{
+    border-bottom:1px solid #333;
+
+  }
+
+  /* このクラスをjQueryで付け外しする */
+  header.transform{
+    background-color:rgba(255,255,255,0.8);
+  }
+  header.transform .header-inner{
+    justify-content: center;
+  }
+
+
+  /* スライドテキスト */
+  .slide-txt{
+    font-size:29px;
+  }
+
+
+
+  /*--------------- コンセプト ------------------*/
+  .concept-wrap{
+    display:flex;
+    justify-content:space-between;
+  }
+  .concept-right{
+    margin-top:50px;
+    width:51%;
+  }
+  .concept-left{
+    width:40%;
+    margin-top:46px;
+  }
+  
+
+
+
+  /* ------------------ギャラリー--------------- */
+  .slick_slider {
+    max-width: 80%;
+  }
+
+
+
+  /*--------------- スタッフ -------------------*/
+  .staff-wrap{
+  display:flex;
+  justify-content: space-between;
+  }
+  .staff-box{
+    width:25%;
+    margin-bottom:0;
+  }
+
+
+
+  /*---------------- お知らせ ------------------*/
+.article-item-thumb{
+  width:250px;/*PCではサムネ250pxで固定*/
+  margin-right:30px;
+}
+
+
+
+  /* ------------------アクセス---------------- */
+  .access-wrap{
+    display:flex;
+    justify-content: space-between;
+    margin:0 auto;
+  }
+  .access-wrap iframe{
+    width:45%;
+    height:400px;
+  }
+  .access-right{
+    width:45%;
+    margin-top:0;
+  }
+  .access-right img{
+  width:300px;
+}
+
+
+
+  /* --------------------投稿ページ----------------- */
+.two-col-layout{
+  display:flex;
+  justify-content: space-between;
+  padding:50px 20px;
+}
+.main-contents{
+  width:65%;
+  margin-bottom:30px;
+}
+.sidebar{
+  width:25%;
+}
+
+
+
+}

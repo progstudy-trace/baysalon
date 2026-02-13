@@ -1,0 +1,648 @@
+@charset "utf-8";
+
+/* スマホ画面（モバイルファースト） */
+
+/* 共通 */
+body{
+  font-family:YuGothic,sans-serif;
+  color:#333;
+}
+a{
+  text-decoration:none;
+  color:#333;
+}
+a:hover{
+  color:#333;
+}
+
+p{
+  letter-spacing: 1px;
+  line-height: 2;
+  margin-bottom:20px;
+  font-size:15px;
+}
+section{
+  padding:70px 0;
+}
+.container{
+  padding:0 15px;
+}
+
+.home-h2{
+  text-align:center;
+  font-size:28px;
+  font-family: serif;
+  margin-bottom:50px;
+}
+
+.salon-btn{
+    background:#9932cc;
+    width:110px;
+    height:35px;
+    margin:70px auto 0 auto;
+    text-align: center;
+    border-radius:4px;
+  }
+.salon-btn a{
+  color:#fff;
+  display:block;
+  line-height: 35px;
+  font-size:14px;
+  transition: 0.5s;
+}
+
+.pc{
+  display:none;
+}
+
+.fadein {
+  opacity : 0;
+  transform: translateY(20px);
+  transition: all 1s;
+}
+
+
+
+
+
+/* ----------------------------ヘッダー---------------------------- */
+header{
+  background-color:rgba(255,255,255,0.4);
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:2;
+  padding:10px 10px;
+}
+
+#header-logo{
+  text-align: center;
+  margin:0;
+}
+
+#header-logo img{
+  width:220px;
+  height:auto;
+}
+
+
+/*　ハンバーガーボタン　*/
+.hamburger {
+  display : block;
+  position: fixed;
+  z-index : 3;
+  right : 7px;
+  top   : 12px;
+  width : 44px;
+  height: 44px;
+  cursor: pointer;
+  text-align: center;
+}
+.hamburger span {
+  display : block;
+  position: absolute;
+  width   : 25px;
+  height  : 2px ;
+  left    : 9px;
+  background : #333;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition   : 0.3s ease-in-out;
+  transition        : 0.3s ease-in-out;
+}
+.hamburger span:nth-child(1) {
+  top: 9px;
+}
+.hamburger span:nth-child(2) {
+  top: 18px;
+}
+.hamburger span:nth-child(3) {
+  top: 27px;
+}
+/* ハンバーガーメニュー下の「menu」の文字 */
+.hamburger p{
+  position:absolute;
+  top:28px;
+  right:6px;
+  font-size:10px;
+  margin:0;
+}
+
+/* ナビ開いてる時のボタン */
+.hamburger.active span:nth-child(1) {
+  top : 16px;
+  left: 9px;
+  background :#333;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform   : rotate(-45deg);
+  transform        : rotate(-45deg);
+}
+
+.hamburger.active span:nth-child(2),
+.hamburger.active span:nth-child(3) {
+  top: 16px;
+  background :#333;
+  -webkit-transform: rotate(45deg);
+  -moz-transform   : rotate(45deg);
+  transform        : rotate(45deg);
+}
+
+/* 開いたナビ */
+nav.globalnav-sp {
+  position: fixed;
+  z-index : 2;
+  top  : 0;
+  left : 0;
+  background: rgba(255,255,255,0.9);
+  text-align: center;
+  width: 100%;
+  opacity:0;
+  pointer-events: none;
+  transition: opacity 0.6s ease, visibility .6s ease;
+}
+
+nav.globalnav-sp ul {
+  margin: 0 auto;
+  padding:50px 0 0;
+  width: 100%;
+}
+
+nav.globalnav-sp ul li {
+  list-style-type: none;
+  padding:0;
+  width: 100%;
+  transition: .4s all;
+}
+nav.globalnav-sp ul li:last-child {
+  padding-bottom: 0;
+}
+nav.globalnav-sp ul li:hover{
+  background :#555 !important;
+}
+
+nav.globalnav-sp ul li a {
+  display: block;
+  padding: 1em 0;
+  text-decoration :none;
+  font-size:14px;
+}
+
+/* このクラスを、jQueryで付与・削除する */
+nav.globalnav-sp.active {
+  opacity:100;
+  pointer-events: auto;
+}
+.hamburger.transform{
+  background-color:rgba(255,255,255,0.7);
+}
+.logo-hide{
+  display:none;
+}
+
+
+
+
+/* ---------------------スライドショー--------------------- */
+.slide{
+  position:relative;
+  height:100vh;
+  overflow: hidden;
+  background:#fff;
+}
+.slide img{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  animation:slideshow 24s linear infinite;
+  filter: opacity(0.8);/*これによりうっすら白をかぶせている*/
+}
+
+.slide img:nth-child(2){
+  animation-delay:8s;
+}
+.slide img:nth-child(3){
+  animation-delay:16s;
+}
+
+@keyframes slideshow{
+  0%{
+    opacity:0;
+    transform: scale(1);
+  }
+  10%{
+    opacity:1;
+  }
+  28%{
+    opacity:1;
+  }
+  38%{
+    opacity:0;
+    transform: scale(1.1);
+  }
+  100%{
+    opacity:0;
+  }
+}
+
+
+/* スライドテキスト */
+.slide-txt{
+  font-size:22px;
+  position:absolute;
+  top:43%;
+  max-width:90%;
+  margin:0 auto;
+  left:0;
+  right:0;
+  text-align: center;
+  text-shadow:0 0 3px #fff;
+  color:#333;
+}
+.slide-txt{
+  opacity:0;
+  animation:slidetext 24s linear infinite;
+}
+.slide-txt2{
+  animation-delay:8s !important;
+}
+.slide-txt3{
+  animation-delay:16s;
+}
+
+@keyframes slidetext{
+  0%{
+    opacity:0;
+  }
+  10%{
+    opacity:1;
+  }
+  28%{
+    opacity:1;
+  }
+  38%{
+    opacity:0;
+  }
+  100%{
+    opacity:0;
+  }
+}
+
+
+
+/*========= スクロールダウンのためのCSS ===============*/
+
+/*=== 9-1-4 矢印が動いてスクロールを促す  ====*/
+
+/*スクロールダウン全体の場所*/
+.scrolldown4{
+  /*描画位置※位置は適宜調整してください*/
+  position:absolute;
+  bottom:10%;
+  right:50%;
+    /*矢印の動き1秒かけて永遠にループ*/
+  animation: arrowmove 1s ease-in-out infinite;
+}
+
+/*下からの距離が変化して全体が下→上→下に動く*/
+@keyframes arrowmove{
+    0%{bottom:10%;}
+    50%{bottom:13%;}
+   100%{bottom:10%;}
+}
+
+/*Scrollテキストの描写*/
+.scrolldown4 span{
+  /*描画位置*/
+  position: absolute;
+  left:-20px;
+  bottom:10px;
+    /*テキストの形状*/
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  /*縦書き設定*/
+  -ms-writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+}
+/* 矢印の描写 */
+.scrolldown4:before {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 0;
+  right: -6px;
+  /*矢印の形状*/
+  width: 1px;
+  height: 20px;
+  background: #333;
+  transform: skewX(-31deg);
+}
+.scrolldown4:after{
+content:"";
+  /*描画位置*/
+position: absolute;
+bottom:0;
+right:0;
+  /*矢印の形状*/
+width:1px;
+height: 50px;
+background:#333;
+}
+
+
+/* ---------------コンセプト ------------------*/
+.concept-right{
+  margin-top:100px;
+  margin-bottom:30px;
+}
+.concept-right img{
+  width:54%;
+}
+.concept-right img:nth-child(2){
+  position:absolute;
+  top:-50px;
+  right:0px;
+  z-index: -1;
+}
+
+
+/*------------------- メニュー -----------------*/
+.salon-menu{
+  background-image:
+    linear-gradient(rgba(153, 50, 204, 0.2), rgba(153, 50, 204, 0.2)),
+    url(../img/menu-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  text-align:center;
+  color:#fff;
+}
+.salon-menu-wrap{
+  max-width:450px;
+  margin:0 auto;
+}
+.salon-menu h3{
+  margin:80px 0 30px;
+  font-size:20px;
+}
+.salon-menu table{
+  width:100%;
+  margin:0 auto;
+}
+.salon-menu table th{
+  text-align:left;
+  font-weight:normal;
+  line-height: 3.0;
+}
+.salon-menu table td{
+  text-align:right;
+}
+
+
+/*------------------------- ギャラリー -------------*/
+.slick_slider {
+  width: 100%;
+  display: flex;
+  max-width: 87%;
+  margin: auto;
+  padding-left:0;/*ulにデフォルトでついてるpaddingを消す*/
+}
+.slick_slider li {
+  height: auto;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.slick_slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Slickスライダーの矢印 */
+.slick-prev:before,.slick-next:before{
+  color: #999;
+  font-size: 30px;
+}
+.slick-prev:before {
+  font-family: "Font Awesome 5 Free";
+  content: '\f053';
+  font-weight: 900;
+}
+.slick-next:before {
+  font-family: "Font Awesome 5 Free";
+  content: '\f054';
+  font-weight: 900;
+}
+/* Slickスライダーのドット */
+.slick-dots {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+/*----------------- スタッフ -----------------*/
+.staff{
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+    url(../img/staff-bg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.staff-box{
+  width:60%;
+  margin:0 auto 90px;
+}
+.staff-box img{
+  width:100%;
+  border-radius:50%;
+}
+.staff p{
+  text-align: center;
+  line-height:1;
+}
+
+
+
+/*---------------- お知らせ ------------------*/
+.news{
+  background:#f6f6f6;
+}
+.article-item{
+  padding-top:15px;
+  padding-bottom:15px;
+  border-top:1px solid #aaa;
+}
+.article-item:nth-of-type(1){
+  border-top:none;
+}
+.article-item-wrap{
+  display:flex;
+}
+.article-item-thumb{
+  width:40%;
+  margin-right:15px;
+}
+.article-item img{
+  width:100%;
+  height:150px;
+  object-fit: cover;
+}
+.article-item-body{
+  flex:1;
+}
+.article-item-title{
+  font-weight: normal;
+}
+.article-item-meta{
+  display:flex;
+  padding-left:0;
+}
+.article-item-meta li{
+  list-style: none;
+  padding:3px 5px;
+  font-size:13px;
+}
+.article-item-cat{
+  background:#ddd;
+  border-radius:3px;
+}
+
+.article-item-txt{
+  line-height:1.5;
+  font-size:14px;
+}
+
+
+
+/* ------------------------アクセス----------------- */
+.access-wrap iframe{
+  width:100%;
+  height:300px;
+}
+
+.access-right{
+  margin-top:40px;
+}
+.access-right img{
+  width:100%;
+  margin-bottom: 20px;
+}
+.access-h3{
+  font-family: serif;
+}
+.access-tel{
+  font-size:1.5em;
+  margin-top:20px;
+}
+
+
+/* --------------フッター-------------------- */
+footer{
+  text-align:center;
+  padding:20px 15px;
+  background:#f6f6f6;
+}
+
+footer img{
+  width:200px;
+  margin-bottom:10px;
+}
+
+.footer-sns{
+  display:flex;
+  justify-content: center;
+  margin:0;
+}
+.footer-sns-item{
+  list-style-type: none;
+  padding:10px;
+}
+.footer-sns-item a{
+  font-size:26px;
+}
+
+footer small{
+  font-size:12px;
+}
+
+
+
+/* ---------------固定ページ------------------- */
+.page-title-bg{
+  height:200px;
+  padding-top:80px;
+  background:url(../img/slide1.jpg);
+  background-size:cover;
+  background-position: center center;
+  text-align: center;
+  margin:0;
+  position: relative;
+}
+.page-title-bg::after{
+  content: '';
+  background-color: rgba(255,255,255,.5);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.page-title{
+  text-align: center;
+  position: relative;/*文字が上に来るようにz-indexを使うため*/
+  z-index: 1;
+  font-size:28px;
+}
+
+
+
+/* ----------------投稿ページ-------------------- */
+.main-contents{
+  margin-bottom:50px;
+}
+
+
+.post-title{
+  font-size:24px;
+  margin-bottom:10px;
+}
+.thumb-img{
+  max-width:100%;
+}
+
+.sidebar-title{
+  font-size:20px;
+  margin-bottom:20px;
+  border-bottom:2px solid #9932cc;
+  padding-bottom:5px;
+}
+
+.sidebar ul{
+  margin-bottom:30px;
+  padding-left:0;
+}
+
+.sidebar ul li{
+  list-style: none;
+  margin-bottom:10px;
+}
+
+
+/*アーカイブページ*/
+.more-btn{
+    background:#9932cc;
+    width:110px;
+    height:32px;
+    margin-left:auto;
+    text-align: center;
+    border-radius:4px;
+  }
+  .more-btn a{
+  color:#fff;
+  display:block;
+  line-height: 32px;
+  font-size:13px;
+  transition: 0.5s;
+}
